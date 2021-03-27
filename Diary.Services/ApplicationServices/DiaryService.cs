@@ -19,6 +19,6 @@ namespace Diary.Services.ApplicationServices
         public async Task DeleteEntry(int entryId) => await _diaryDataManager.DeleteEntry(entryId);
         public async Task ShareEntry(int entryId, int sharedToUserId) => await _diaryDataManager.ShareEntry(entryId, sharedToUserId);
         public async Task<List<EntryList>> GetEntryList(int userId) => await _diaryDataManager.GetEntryList(userId);
-        public async Task<List<EntryList>> SearchEntryList(string searchString) => await _diaryDataManager.SearchEntryList(searchString);
+        public async Task<List<EntryList>> SearchEntryList(int userId, string searchString) => await _diaryDataManager.SearchEntryList(userId, searchString);
     }
 }

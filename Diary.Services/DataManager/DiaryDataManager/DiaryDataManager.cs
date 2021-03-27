@@ -93,7 +93,7 @@ namespace Diary.Services.DataManager.DiaryDataManager
         }
 
 
-        public async Task<List<EntryList>> SearchEntryList(string searchString)
+        public async Task<List<EntryList>> SearchEntryList(int userId, string searchString)
         {
             var sql = @"
             SELECT
@@ -108,11 +108,13 @@ namespace Diary.Services.DataManager.DiaryDataManager
             INNER JOIN dbo.Users U ON U.UserId = E.UserId
             WHERE
 	            E.Content LIKE '%' + @searchString + '%'
+            AND E.UserID = @userId
             AND E.IsDeleted IS NULL";
 
             using var db = GetDiaryDbConnection();
             var result = await db.QueryAsync<EntryList>(sql, new
             {
+                userId,
                 searchString
             });
 

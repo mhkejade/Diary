@@ -10,6 +10,6 @@ namespace Diary.Services.DataManager.DiaryDataManager
         Task DeleteEntry(int entryId);
         Task ShareEntry(int entryId, int sharedToUserId);
         Task<List<EntryList>> GetEntryList(int userId);
-        Task<List<EntryList>> SearchEntryList(string searchString);       
+        Task<List<EntryList>> SearchEntryList(int userId, string searchString);       
     }
 }

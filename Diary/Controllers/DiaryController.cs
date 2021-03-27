@@ -43,11 +43,11 @@ namespace Diary.Controllers
             return Ok();
         }
 
-        [Route("search/{searchString}")]
+        [Route("search/{userId}/{searchString}")]
         [HttpGet]
-        public async Task<IActionResult> SearchEntryList([FromRoute] string searchString)
+        public async Task<IActionResult> SearchEntryList([FromRoute] int userId, [FromRoute] string searchString)
         {
-            return Ok(await _diaryService.SearchEntryList(searchString));
+            return Ok(await _diaryService.SearchEntryList(userId, searchString));
         }
 
         [Route("share-entry/{entryId}/{sharedToUserId}")]
