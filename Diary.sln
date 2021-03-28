@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary", "Diary\Diary.csproj", "{D3F25F41-2A5F-4E6E-BB69-9AA45DDC1880}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diary", "Diary\Diary.csproj", "{D3F25F41-2A5F-4E6E-BB69-9AA45DDC1880}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.Services", "Diary.Services\Diary.Services.csproj", "{78024574-C3AF-4640-A2FA-97F4054D5CE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diary.Services", "Diary.Services\Diary.Services.csproj", "{78024574-C3AF-4640-A2FA-97F4054D5CE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.UnitTests", "Diary.UnitTests\Diary.UnitTests.csproj", "{609C90A1-EDD4-499B-82BD-DDD9A94B5344}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{78024574-C3AF-4640-A2FA-97F4054D5CE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78024574-C3AF-4640-A2FA-97F4054D5CE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78024574-C3AF-4640-A2FA-97F4054D5CE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{609C90A1-EDD4-499B-82BD-DDD9A94B5344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{609C90A1-EDD4-499B-82BD-DDD9A94B5344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{609C90A1-EDD4-499B-82BD-DDD9A94B5344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{609C90A1-EDD4-499B-82BD-DDD9A94B5344}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
