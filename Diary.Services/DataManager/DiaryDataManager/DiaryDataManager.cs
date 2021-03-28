@@ -45,9 +45,21 @@ namespace Diary.Services.DataManager.DiaryDataManager
 	            E.Content,
 	            E.CreationTime,
 	            U.UserName Author,
-                0 isSharedToMe
+                0 isSharedToMe,
+	            Sharing.sharedTo sharedToFriends
             FROM dbo.Entries E
             INNER JOIN dbo.Users U ON U.UserId = E.UserId
+            OUTER APPLY
+            (
+	            SELECT STUFF((
+	            SELECT
+		            ',' + U.UserName 
+	            FROM dbo.EntrySharing ES 
+	            INNER JOIN dbo.Users U ON U.UserId = ES.SharedToUserId
+	            WHERE
+		            ES.EntryId = E.EntryId
+	            FOR XML PATH('')),1,1,'') sharedTo
+            ) Sharing
             WHERE
 	            E.UserId = @userId
             AND E.IsDeleted IS NULL
@@ -61,7 +73,8 @@ namespace Diary.Services.DataManager.DiaryDataManager
 	            E.Content,
 	            E.CreationTime,
 	            U.UserName Author,
-                1 isSharedToMe
+                1 isSharedToMe,
+                NULL sharedToFriends
             FROM dbo.Entries E
             INNER JOIN dbo.EntrySharing ES ON ES.EntryId = E.EntryId
             INNER JOIN dbo.Users U ON U.UserId = E.UserId
@@ -103,9 +116,21 @@ namespace Diary.Services.DataManager.DiaryDataManager
 	            E.Content,
 	            E.CreationTime,
 	            U.UserName Author,
-                0 isShared
+                0 isSharedToMe,
+	            Sharing.sharedTo sharedToFriends
             FROM dbo.Entries E
             INNER JOIN dbo.Users U ON U.UserId = E.UserId
+            OUTER APPLY
+            (
+	            SELECT STUFF((
+	            SELECT
+		            ',' + U.UserName 
+	            FROM dbo.EntrySharing ES 
+	            INNER JOIN dbo.Users U ON U.UserId = ES.SharedToUserId
+	            WHERE
+		            ES.EntryId = E.EntryId
+	            FOR XML PATH('')),1,1,'') sharedTo
+            ) Sharing
             WHERE
 	            E.Content LIKE '%' + @searchString + '%'
             AND E.UserID = @userId

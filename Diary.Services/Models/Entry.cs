@@ -16,7 +16,8 @@ namespace Diary.Services.Models
 
     public class EntryList : Entry
     {
-        public string Author { get; set; }
-        public bool isSharedToMe { get; set; } = false;
+        public string author { get; set; }
+        public string sharedToFriends { get; set; }
+        public bool isSharedToMe { get; set; } = false;        
     }
 }
