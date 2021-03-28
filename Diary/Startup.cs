@@ -26,10 +26,24 @@ namespace Diary
 
         public IConfiguration Configuration { get; }
 
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:4200/")
+                                      .AllowAnyOrigin()
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod();                                      
+                                  });
+            });
 
             services.Add(new ServiceDescriptor(typeof(IDiaryService), typeof(DiaryService), ServiceLifetime.Scoped));
             services.Add(new ServiceDescriptor(typeof(IDiaryDataManager), typeof(DiaryDataManager), ServiceLifetime.Scoped));
@@ -50,6 +64,8 @@ namespace Diary
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseEndpoints(endpoints =>
             {

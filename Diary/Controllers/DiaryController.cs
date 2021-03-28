@@ -35,7 +35,7 @@ namespace Diary.Controllers
             return Ok(await _diaryService.GetEntryList(userId));
         }
 
-        [Route("delete/{entryId}")]
+        [Route("delete-entry/{entryId}")]
         [HttpDelete]
         public async Task<IActionResult> DeleteEntry([FromRoute] int entryId)
         {

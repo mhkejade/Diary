@@ -62,7 +62,7 @@ namespace Diary.Services.DataManager.DiaryDataManager
             ) Sharing
             WHERE
 	            E.UserId = @userId
-            AND E.IsDeleted IS NULL
+            AND ISNULL(E.IsDeleted,0) = 0
 
             UNION
 
@@ -80,7 +80,7 @@ namespace Diary.Services.DataManager.DiaryDataManager
             INNER JOIN dbo.Users U ON U.UserId = E.UserId
             WHERE
 	            ES.SharedToUserId = @userId
-            AND E.IsDeleted IS NULL
+            AND ISNULL(E.IsDeleted,0) = 0
 
             ORDER BY E.CreationTime";
 
@@ -134,7 +134,7 @@ namespace Diary.Services.DataManager.DiaryDataManager
             WHERE
 	            E.Content LIKE '%' + @searchString + '%'
             AND E.UserID = @userId
-            AND E.IsDeleted IS NULL";
+            AND ISNULL(E.IsDeleted,0) = 0";
 
             using var db = GetDiaryDbConnection();
             var result = await db.QueryAsync<EntryList>(sql, new
