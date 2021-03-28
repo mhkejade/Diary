@@ -13,16 +13,14 @@ BEGIN
 		UserName VARCHAR(255)
 	)
 END
-ELSE
+
+--add Dummy
+IF NOT EXISTS (SELECT 1 FROM dbo.Users)
 BEGIN
-	--add Dummy
-	IF NOT EXISTS (SELECT 1 FROM dbo.Users)
-	BEGIN
-		INSERT INTO dbo.Users
-		(
-			UserName
-		)
-		VALUES ('mike'), ('mae'), ('mark')
-	END
+	INSERT INTO dbo.Users
+	(
+		UserName
+	)
+	VALUES ('mike'), ('mae'), ('mark')
 END
 
