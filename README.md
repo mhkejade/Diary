@@ -2,7 +2,7 @@
 Basic Diary App
 
 # Instructions
-1. Setup manually a local sql server express database (see enhancements). Execute the table create scripts in DBComponents folder.
+1. Setup manually a local sql server express database (see enhancements). Execute the table create scripts in Diary/DBComponents folder.
 2. update appsettings.json (Diary project) for the correct connectionstrings.
 3. open solution in VS. launch application via IIS Express
 
