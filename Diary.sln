@@ -9,6 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diary.Services", "Diary.Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.UnitTests", "Diary.UnitTests\Diary.UnitTests.csproj", "{609C90A1-EDD4-499B-82BD-DDD9A94B5344}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DBComponents", "DBComponents", "{8B9A03C7-B7CC-48A2-B368-57C504EA0D7E}"
+	ProjectSection(SolutionItems) = preProject
+		..\DBComponents\Entries_000.sql = ..\DBComponents\Entries_000.sql
+		..\DBComponents\EntrySharing_000.sql = ..\DBComponents\EntrySharing_000.sql
+		..\DBComponents\Users_000.sql = ..\DBComponents\Users_000.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
