@@ -10,3 +10,5 @@ Basic Diary App
 1. use docker for sql server express as not to setup db manually OR
 2. use SQL Lite in memory db
 3. use EF instead of tsql datamanager services
+4. enhance unit test
+5. add functional test if using a different db
